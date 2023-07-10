@@ -1,0 +1,50 @@
+<ion-header no-border>
+    <div class="login-header ion-padding">
+        <img class="logo-img" src="../assets/images1.png">
+
+        <ion-label style="text-align: center; padding-top: 10px;">
+            Monitoring System
+        </ion-label>
+
+        <ion-label style="text-align: center; padding-top: 10px; font-family: 'Tahoma' !important; ">
+            <h1>S I M A K A L</h1>
+        </ion-label>
+    </div>
+</ion-header>
+
+<ion-content>
+    <div class="center">
+        <div class="heading-coloumn-lr">
+            <h1 big-heading>Login</h1>
+        </div>
+
+        <ion-label style="margin-left: 40px;">
+            Silahkan Masuk Untuk Melanjutkan
+        </ion-label>
+
+        <form (ngSubmit)="login()" [formGroup]="myForm" class="ion-margin">
+            <div class="input-group">
+                <ion-item lines="none" class="ion-no-lines" class="item-background-color">
+                    <ion-label position="floating">Username or Email</ion-label>
+                    <ion-input type="email" formControlName="email"></ion-input>
+                    <ion-icon style="padding-top: 20px" name="person-outline" color="success" slot="end"></ion-icon>
+                </ion-item>
+            </div>
+            <div class="input-group">
+                <ion-item lines="none" class="item-background-color">
+                    <ion-label position="floating">Password</ion-label>
+                    <ion-input [type]="showPassword ? 'text' : 'password'"  formControlName="password"></ion-input>
+                    <ion-icon style="padding-top: 20px" [name]="passwordIcon" (click)="toggleShow()" color="success" slot="end"></ion-icon>
+                </ion-item>
+            </div>
+            <br><br>
+            <ion-button type="submit" class="btnsaja" shape="round" expand="block" [disabled]="!myForm.valid" color="success">Masuk</ion-button>
+        </form>
+
+    </div>
+
+    <ion-card *ngIf="result">
+        <ion-card-content> <img [src]="result" /></ion-card-content>
+    </ion-card>
+
+</ion-content>
